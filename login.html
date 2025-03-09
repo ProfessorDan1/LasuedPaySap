@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In - LasuedPay</title>
+
+  <!-- Font Awesome (Icons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <style>
+    /********** GLOBAL STYLES **********/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    }
+    body {
+      background: #000; /* Dark background */
+      color: #fff;      /* White text */
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+    }
+
+    /********** NAVBAR **********/
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0ef;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    .nav-links li {
+      margin-left: 20px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #0ef;
+    }
+    /* Dashboard button in navbar */
+    .btn-nav {
+      background: #0ef;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: 500;
+      margin-left: 15px;
+      transition: background 0.3s;
+    }
+    .btn-nav:hover {
+      background: #0accca;
+    }
+    /* Hamburger menu icon (mobile) */
+    .menu-icon {
+      display: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /********** SIGN-IN SECTION **********/
+    .signin-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 60px);
+      background: linear-gradient(135deg, #0f0f0f 0%, #222 100%);
+      padding: 40px 20px;
+    }
+    .signin-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .signin-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0ef;
+      font-size: 1.8rem;
+    }
+    .signin-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .signin-form label {
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .signin-form input[type="email"],
+    .signin-form input[type="password"] {
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #111;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    .signin-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+    }
+    .remember-me input {
+      margin-right: 5px;
+      transform: scale(1.2);
+    }
+    .signin-actions a {
+      color: #0ef;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .signin-actions a:hover {
+      color: #0accca;
+    }
+    .btn-signin {
+      background: #0ef;
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    .btn-signin:hover {
+      background: #0accca;
+    }
+    .signup-link {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+    .signup-link a {
+      color: #0ef;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 5px;
+    }
+    .signup-link a:hover {
+      color: #0accca;
+    }
+
+    /********** MEDIA QUERIES **********/
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 50%;
+        height: 100%;
+        background: #000;
+        flex-direction: column;
+        padding: 20px;
+        transition: right 0.4s;
+      }
+      .nav-links li {
+        margin: 15px 0;
+      }
+      .menu-icon {
+        display: block; /* Show hamburger icon on mobile */
+      }
+      .navbar .nav-links.show-menu {
+        right: 0;
+      }
+    }
+
+    /********** FADE-IN ON SCROLL **********/
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="logo">LasuedPay</div>
+    <div class="menu-icon" id="menuIcon">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <!-- Adjust links as needed -->
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#features">Services</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="ourteam.html">Our Team</a></li>
+      <li><a href="dashboard.html" class="btn-nav">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- SIGN IN SECTION (fade-in) -->
+  <section class="signin-section fade-in">
+    <div class="signin-container">
+      <h1>Sign In</h1>
+      <form class="signin-form" action="#" method="post">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Enter your email" 
+          required 
+        />
+
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Enter your password" 
+          required 
+        />
+
+        <div class="signin-actions">
+          <div class="remember-me">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember" style="margin: 0;">Remember Me</label>
+          </div>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn-signin">Sign In</button>
+
+        <p class="signup-link">
+          Don’t have an account?
+          <a href="#">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- INLINE JAVASCRIPT -->
+  <script>
+    /***** 1) MOBILE MENU TOGGLE *****/
+    const menuIcon = document.getElementById('menuIcon');
+    const navLinks = document.getElementById('navLinks');
+
+    menuIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('show-menu');
+    });
+
+    /***** 2) FADE-IN ON SCROLL USING INTERSECTION OBSERVER *****/
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0,
+      rootMargin: "0px 0px -100px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
