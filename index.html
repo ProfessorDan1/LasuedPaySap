@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LasuedPay - The Future of Online Payments</title>
-  <!-- Font Awesome (Icons) -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <!-- Google Fonts (Optional) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link 
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" 
@@ -18,19 +16,24 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="logo">LasuedPay</div>
-    <a href="login.html" class="btn-signin">Sign In</a>
-    <div class="menu-icon" id="menuIcon">
-      <i class="fas fa-bars"></i>
+    <div class="nav-left">
+      <div class="logo">LasuedPay</div>
     </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#features">Services</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="team.html">Our Team</a></li>
-      <li><a href="dashboard.html" class="btn-nav">Dashboard</a></li>
-    </ul>
+    <div class="nav-center">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Services</a></li>
+        <li><a href="#buy">Buy Crypto</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#team">Our Team</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="btn-signin">Sign In</a>
+      <div class="menu-icon" id="menuIcon">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
   </nav>
 
   <!-- Hero Section -->
@@ -38,83 +41,172 @@
     <div class="hero-content fade-in">
       <h1>The Future of Online Payments is Here</h1>
       <p>Experience seamless, secure, and lightning-fast transactions anywhere in the world.</p>
-      <a href="dashboard.html" class="cta-btn">Get Started</a>
+      <a href="#buy" class="cta-btn">Get Started</a>
     </div>
   </header>
 
-  <!-- Services Section -->
-  <section class="features-section" id="features">
+  <!-- Our Mission & Our Vision Section -->
+  <section class="mission-vision-section fade-in" id="mission-vision">
+    <h2>Our Mission &amp; Our Vision</h2>
+    <div class="mission-vision-container">
+      <div class="mission">
+        <!-- Inline SVG icon for mission -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="mission-icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zm-3.293-1.293L8 10.414 3.293 5.707l1.414-1.414L8 7.586l3.293-3.293 1.414 1.414z"/>
+        </svg>
+        <h3>Our Mission</h3>
+        <p>To empower individuals and businesses with secure, seamless, and innovative payment solutions.</p>
+      </div>
+      <div class="vision">
+        <!-- Inline SVG icon for vision -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="vision-icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zm-8 4a4 4 0 1 1 4-4 4.005 4.005 0 0 1-4 4z"/>
+          <path d="M8 5.5a2.5 2.5 0 1 0 2.5 2.5A2.5 2.5 0 0 0 8 5.5z"/>
+        </svg>
+        <h3>Our Vision</h3>
+        <p>To revolutionize online payments globally, making transactions safe and accessible for everyone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Services Section -->
+  <section class="features-section fade-in" id="features">
     <h2>Why Choose LasuedPay?</h2>
     <div class="features-container">
+      <!-- Secure Feature Card -->
       <div class="feature-card fade-in">
-        <i class="fas fa-shield-alt"></i>
+        <!-- Inline SVG icon for secure (Shield) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0c-.69 0-1.3.26-1.758.66L.136 5.062A1.77 1.77 0 0 0 0 6.078V8c0 4.418 3.582 8 8 8s8-3.582 8-8V6.078a1.77 1.77 0 0 0-.136-.996L9.758.66A2.72 2.72 0 0 0 8 0zM8 1a1.72 1.72 0 0 1 1.422.734l6.06 4.293A.77.77 0 0 1 16 6.078V8c0 3.866-3.134 7-7 7S2 11.866 2 8V6.078a.77.77 0 0 1 .518-.551l6.06-4.293A1.72 1.72 0 0 1 8 1z"/>
+        </svg>
         <h3>Secure</h3>
         <p>We use cutting-edge encryption to protect all your transactions.</p>
       </div>
+      <!-- Fast Feature Card -->
       <div class="feature-card fade-in">
-        <i class="fas fa-bolt"></i>
+        <!-- Inline SVG icon for fast (Lightning Bolt) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11.3 1L2 8h6l-1 7L14 8H8l3.3-7z"/>
+        </svg>
         <h3>Fast</h3>
         <p>Enjoy near-instant transfers and payments across the globe.</p>
       </div>
+      <!-- Global Feature Card -->
       <div class="feature-card fade-in">
-        <i class="fas fa-globe"></i>
+        <!-- Inline SVG icon for global (Globe) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-6.468 4h12.936A7 7 0 0 0 8 1zm4.563 5H3.437A6.978 6.978 0 0 0 2 8c0 .528.07 1.04.201 1.53h11.598A6.978 6.978 0 0 0 14 8c0-.528-.07-1.04-.437-2zm-.64 3H4.077A7.004 7.004 0 0 1 3.23 10h9.54a7.004 7.004 0 0 1-.847-2zM8 15a7 7 0 0 0 6.468-4H1.532A7 7 0 0 0 8 15z"/>
+        </svg>
         <h3>Global</h3>
         <p>Pay anyone, anywhere, with multi-currency support and no hassles.</p>
       </div>
+      <!-- Mobile Friendly Feature Card -->
       <div class="feature-card fade-in">
-        <i class="fas fa-mobile-alt"></i>
+        <!-- Inline SVG icon for mobile (Phone) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="feature-icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+          <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+        </svg>
         <h3>Mobile Friendly</h3>
         <p>Manage your finances on the go with our responsive, sleek interface.</p>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section class="pricing-section" id="pricing">
-    <h2>Our Pricing</h2>
-    <div class="pricing-container">
-      <div class="pricing-card fade-in">
-        <h3>Basic</h3>
-        <p class="price">₦0/mo</p>
-        <ul>
-          <li>Essential Features</li>
-          <li>Limited Transactions</li>
-          <li>Email Support</li>
-        </ul>
-        <button class="pricing-btn">Sign Up</button>
-      </div>
-      <div class="pricing-card recommended fade-in">
-        <h3>Pro</h3>
-        <p class="price">₦15000/mo</p>
-        <ul>
-          <li>Unlimited Transactions</li>
-          <li>Priority Support</li>
-          <li>Advanced Analytics</li>
-        </ul>
-        <button class="pricing-btn">Get Pro</button>
-      </div>
-      <div class="pricing-card fade-in">
-        <h3>Enterprise</h3>
-        <p class="price">Custom</p>
-        <ul>
-          <li>Custom Limits</li>
-          <li>24/7 Dedicated Support</li>
-          <li>Custom Integrations</li>
-        </ul>
-        <button class="pricing-btn">Contact Us</button>
-      </div>
+  <!-- Buy Cryptocurrency Section -->
+  <section class="pricing-section fade-in" id="buy">
+    <h2>Buy Cryptocurrency</h2>
+    <p>
+      Purchase your cryptocurrency securely with a one-time transaction.
+      No account is required—simply input your details and follow the secure payment process.
+    </p>
+    <!-- Payment logos above the circular button -->
+    <div class="payment-logos">
+      <img src="img/visa.svg" alt="Visa">
+      <img src="img/mastercard.svg" alt="Mastercard">
+      <img src="img/applepay.svg" alt="Apple Pay">
+      <img src="img/googlepay.svg" alt="Google Pay">
+    </div>
+    <!-- Circular Buy Now Button with arrow -->
+    <div id="buyNowCircle" class="buy-now-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" class="arrow-icon" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 1 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 1 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+      </svg>
     </div>
   </section>
 
+  <!-- Buy Modal for Cryptocurrency (Pop-up) -->
+  <div id="buyModal" class="modal">
+    <div class="modal-content buy-modal-content">
+      <button id="closeBuyModal" class="modal-close-btn">×</button>
+      <h2>Buy Cryptocurrency</h2>
+      <form id="buyCryptoForm">
+        <input type="text" id="cryptoAddress" placeholder="Enter wallet address" required>
+        <input type="number" id="usdAmount" placeholder="Amount in USD" required>
+        <select id="cryptoSelect" required>
+          <option value="" disabled selected>Select Cryptocurrency</option>
+          <option value="BTC">BTC</option>
+          <option value="SOL">SOL</option>
+          <option value="TON">TON</option>
+          <option value="XRP">XRP</option>
+          <option value="SUI">SUI</option>
+        </select>
+        <input type="text" id="cryptoAmount" placeholder="Crypto Equivalent" readonly>
+        <button id="checkoutBtn" class="cta-btn" type="button">Proceed to Checkout</button>
+      </form>
+      <!-- Payment Gateway Interface Overlay -->
+      <div id="paymentGateway" class="payment-gateway">
+        <button id="backToForm" class="back-btn">&larr; Back</button>
+        <h3>Select Payment Method</h3>
+        <div class="gateway-logos">
+          <img src="img/visa.svg" alt="Visa">
+          <img src="img/mastercard.svg" alt="Mastercard">
+          <img src="img/applepay.svg" alt="Apple Pay">
+          <img src="img/googlepay.svg" alt="Google Pay">
+        </div>
+        <form id="paymentForm">
+          <input type="text" placeholder="Card Number" required>
+          <div class="expiry-cvv">
+            <input type="text" placeholder="MM/YY" required>
+            <input type="password" placeholder="CVV" required>
+          </div>
+          <input type="text" placeholder="Card Holder Name" required>
+          <button type="submit" class="cta-btn">Pay Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- Contact Section -->
-  <section class="contact-section" id="contact">
+  <section class="contact-section fade-in" id="contact">
     <h2>Contact Us</h2>
     <p>Do you have questions or need help? We’re here for you.</p>
     <div class="contact-container">
       <div class="contact-info fade-in">
-        <p><i class="fas fa-envelope"></i> support@lasuedpay.com</p>
-        <p><i class="fas fa-phone"></i>+2340123456789</p>
-        <p><i class="fas fa-map-marker-alt"></i> Room 3 Cohed building, Lasued</p>
+        <p>
+          <a href="mailto:support@lasuedpay.com" class="contact-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217l-8 4.8-8-4.8V4zm0 1.383v6.917l5.803-3.482L0 5.383zm6.761 3.396L16 5.383v6.917l-6.761-4.118a.5.5 0 0 0-.478 0zM16 13a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6.697l7.803 4.701a1.5 1.5 0 0 0 1.394 0L16 6.697V13z"/>
+            </svg>
+            <span>support@lasuedpay.com</span>
+          </a>
+        </p>
+        <p>
+          <a href="tel:+2340123456789" class="contact-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M3.654 1.328a.678.678 0 0 1 .737-.095l2.261 1.13a.678.678 0 0 1 .315.586l-.002 2.215a.678.678 0 0 1-.196.467L6.64 8.308a11.72 11.72 0 0 0 5.058 5.058l1.362-1.362a.678.678 0 0 1 .467-.196l2.215-.002a.678.678 0 0 1 .586.315l1.13 2.261a.678.678 0 0 1-.095.737l-2.012 2.012a1.745 1.745 0 0 1-1.885.386 19.745 19.745 0 0 1-8.007-8.007 1.745 1.745 0 0 1 .386-1.885L3.654 1.328z"/>
+            </svg>
+            <span>+2340123456789</span>
+          </a>
+        </p>
+        <p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Room+3+Cohed+building,+Lasued" target="_blank" class="contact-link">
+            <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 0a5.53 5.53 0 0 0-5.5 5.5c0 3.168 5.5 10.5 5.5 10.5s5.5-7.332 5.5-10.5A5.53 5.53 0 0 0 8 0zm0 8a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+            </svg>
+            <span>Room 3 Cohed building, Lasued</span>
+          </a>
+        </p>
       </div>
       <form class="contact-form fade-in">
         <input type="text" placeholder="Your Name" required />
@@ -126,11 +218,22 @@
   </section>
 
   <!-- Our Team Section -->
-  <section class="our-team-section">
+  <section class="our-team-section fade-in" id="team">
     <h2>Our Team</h2>
     <p>Meet the people behind LasuedPay.</p>
     <a href="team.html" class="cta-btn">Meet Our Team</a>
   </section>
+
+  <!-- Disclaimer Modal -->
+  <div id="disclaimerModal" class="modal">
+    <div class="modal-content">
+      <h2>Notice !!!</h2>
+      <p class="modal-text">
+        Please be aware that this is only a model and not a real payment platform. DO NOT PUT ANY SENSITIVE INFORMATION HERE! We will never ask for your card details, OTP or any sensitive information via call, WhatsApp, SMS, Email. Please do not respond to such.
+      </p>
+      <button id="closeModal" class="cancel-btn">Cancel</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer-section">
@@ -143,6 +246,107 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js"></script>
+  <script>
+    // Mobile Menu Toggle
+    const menuIcon = document.getElementById("menuIcon");
+    const navLinks = document.getElementById("navLinks");
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("show-menu");
+    });
+
+    // Fade-In on Scroll Animation
+    const faders = document.querySelectorAll(".fade-in");
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add("appear");
+        } else {
+          entry.target.classList.remove("appear");
+        }
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Toggle Buy Crypto modal on circle click with arrow rotation animation
+    const buyNowCircle = document.getElementById("buyNowCircle");
+    const buyModal = document.getElementById("buyModal");
+    buyNowCircle.addEventListener("click", () => {
+      // Rotate arrow first
+      buyNowCircle.classList.add("rotated");
+      // Wait for rotation to complete (300ms) then show modal
+      setTimeout(() => {
+        // Reset modal content to form view
+        document.getElementById("buyCryptoForm").style.display = "block";
+        document.getElementById("paymentGateway").style.display = "none";
+        buyModal.style.display = "flex";
+      }, 300);
+    });
+
+    // Close Buy Modal when clicking the close button and reset arrow
+    const closeBuyModal = document.getElementById("closeBuyModal");
+    closeBuyModal.addEventListener("click", () => {
+      buyModal.style.display = "none";
+      buyNowCircle.classList.remove("rotated");
+    });
+
+    // Back button in Payment Gateway Interface to return to form
+    const backToForm = document.getElementById("backToForm");
+    backToForm && backToForm.addEventListener("click", () => {
+      document.getElementById("buyCryptoForm").style.display = "block";
+      document.getElementById("paymentGateway").style.display = "none";
+    });
+
+    // Dummy conversion rates (example values)
+    const conversionRates = {
+      BTC: 50000,
+      SOL: 35,
+      TON: 2,
+      XRP: 1,
+      SUI: 5
+    };
+
+    const usdAmountInput = document.getElementById("usdAmount");
+    const cryptoSelect = document.getElementById("cryptoSelect");
+    const cryptoAmountInput = document.getElementById("cryptoAmount");
+
+    function updateCryptoAmount() {
+      const usd = parseFloat(usdAmountInput.value) || 0;
+      const crypto = cryptoSelect.value;
+      if (crypto && conversionRates[crypto]) {
+        const cryptoAmount = usd / conversionRates[crypto];
+        cryptoAmountInput.value = cryptoAmount.toFixed(8);
+      } else {
+        cryptoAmountInput.value = "";
+      }
+    }
+
+    usdAmountInput.addEventListener("input", updateCryptoAmount);
+    cryptoSelect.addEventListener("change", updateCryptoAmount);
+
+    // Show Payment Gateway overlay when Proceed to Checkout is clicked
+    const checkoutBtn = document.getElementById("checkoutBtn");
+    const paymentGateway = document.getElementById("paymentGateway");
+    checkoutBtn.addEventListener("click", () => {
+      document.getElementById("buyCryptoForm").style.display = "none";
+      paymentGateway.style.display = "block";
+    });
+
+    // Disclaimer Modal functionality
+    const modal = document.getElementById("disclaimerModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        event.stopPropagation();
+      }
+    });
+
+    // Initially hide Buy Modal
+    document.getElementById("buyModal").style.display = "none";
+  </script>
 </body>
 </html>
