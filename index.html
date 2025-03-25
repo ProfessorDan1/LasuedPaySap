@@ -12,6 +12,8 @@
   >
   <!-- CSS -->
   <link rel="stylesheet" href="style.css"/>
+  <!-- Paystack Inline Script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -122,10 +124,10 @@
     </p>
     <!-- Payment logos above the circular button -->
     <div class="payment-logos">
-      <img src="visa.svg" alt="Visa">
-      <img src="mastercard.svg" alt="Mastercard">
-      <img src="applepay.svg" alt="Apple Pay">
-      <img src="googlepay.svg" alt="Google Pay">
+      <img src="img/visa.svg" alt="Visa">
+      <img src="img/mastercard.svg" alt="Mastercard">
+      <img src="img/applepay.svg" alt="Apple Pay">
+      <img src="img/googlepay.svg" alt="Google Pay">
     </div>
     <!-- Circular Buy Now Button with arrow -->
     <div id="buyNowCircle" class="buy-now-circle">
@@ -150,6 +152,8 @@
           <option value="TON">TON</option>
           <option value="XRP">XRP</option>
           <option value="SUI">SUI</option>
+          <option value="ETH">ETH</option>
+          <option value="BNB">BNB</option>
         </select>
         <input type="text" id="cryptoAmount" placeholder="Crypto Equivalent" readonly>
         <button id="checkoutBtn" class="cta-btn" type="button">Proceed to Checkout</button>
@@ -159,11 +163,12 @@
         <button id="backToForm" class="back-btn">&larr; Back</button>
         <h3>Select Payment Method</h3>
         <div class="gateway-logos">
-          <img src="visa.svg" alt="Visa">
-          <img src="mastercard.svg" alt="Mastercard">
-          <img src="applepay.svg" alt="Apple Pay">
-          <img src="googlepay.svg" alt="Google Pay">
+          <img src="img/visa.svg" alt="Visa">
+          <img src="img/mastercard.svg" alt="Mastercard">
+          <img src="img/applepay.svg" alt="Apple Pay">
+          <img src="img/googlepay.svg" alt="Google Pay">
         </div>
+        <!-- Instead of manually entering card details, we trigger Paystack Inline -->
         <form id="paymentForm">
           <input type="text" placeholder="Card Number" required>
           <div class="expiry-cvv">
@@ -272,11 +277,8 @@
     const buyNowCircle = document.getElementById("buyNowCircle");
     const buyModal = document.getElementById("buyModal");
     buyNowCircle.addEventListener("click", () => {
-      // Rotate arrow first
       buyNowCircle.classList.add("rotated");
-      // Wait for rotation to complete (300ms) then show modal
       setTimeout(() => {
-        // Reset modal content to form view
         document.getElementById("buyCryptoForm").style.display = "block";
         document.getElementById("paymentGateway").style.display = "none";
         buyModal.style.display = "flex";
@@ -299,11 +301,13 @@
 
     // Dummy conversion rates (example values)
     const conversionRates = {
-      BTC: 50000,
-      SOL: 35,
-      TON: 2,
+      BTC: 85000,
+      SOL: 140,
+      TON: 5,
       XRP: 1,
-      SUI: 5
+      SUI: 5,
+      ETH: 2500,
+      BNB: 2000,
     };
 
     const usdAmountInput = document.getElementById("usdAmount");
@@ -330,6 +334,37 @@
     checkoutBtn.addEventListener("click", () => {
       document.getElementById("buyCryptoForm").style.display = "none";
       paymentGateway.style.display = "block";
+    });
+
+    // Paystack Payment Integration
+    const paymentForm = document.getElementById("paymentForm");
+    paymentForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Set up your payment details.
+      // In a real-world scenario, you might collect email/amount dynamically.
+      const email = "test@example.com"; 
+      // For example, let's assume USD amount entered is converted to NGN.
+      // You can integrate a conversion or set a fixed amount here.
+      const usdAmount = parseFloat(usdAmountInput.value) || 0;
+      // For demonstration, assume a conversion rate of 1 USD = 400 NGN.
+      const amountNGN = usdAmount * 400;
+      var handler = PaystackPop.setup({
+        key: 'pk_test_5575f9a003de4fc4d3c2f5c246900877e3b26e62', // Replace with your test public test key
+        email: email,
+        amount: amountNGN * 100, // Amount in kobo
+        currency: "NGN",
+        ref: 'TEST_' + Math.floor((Math.random() * 1000000000) + 1),
+        callback: function(response){
+          alert('Payment Successful! Reference: ' + response.reference);
+          // Optionally, you can hide the modal or reset forms here.
+          buyModal.style.display = "none";
+          buyNowCircle.classList.remove("rotated");
+        },
+        onClose: function(){
+          alert('Transaction was not completed.');
+        }
+      });
+      handler.openIframe();
     });
 
     // Disclaimer Modal functionality
